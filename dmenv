@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+dmenvfile="$(pwd)/.dmenv"
+if [ -f $dmenvfile ]
+then
+  echo "Docker env $(cat $dmenvfile)"
+  
+fi
+
+exec "$1"
+

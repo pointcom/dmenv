@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+
+program="${0##*/}"
+if [ "$program" = "docker" ]; then
+  for arg; do
+    case "$arg" in
+    -e* | -- ) break ;;
+    */* )
+      if [ -f "$arg" ]; then
+        export DMENV_DIR="${arg%/*}"
+        echo $DMENV_DIR
+        break
+      fi
+      ;;
+    esac
+  done
+fi
+
+exec "/Users/pointcom/.dmenv/dmenv" exec "$program" "$@"
