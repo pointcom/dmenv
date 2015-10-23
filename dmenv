@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 set -e
 
+DMENV_PATH="$(dirname "$0")"
+PATH="${PATH//$DMENV_PATH/}"
+
 dmenvfile="$(pwd)/.dmenv"
 if [ -f $dmenvfile ]
 then
-  echo "Docker env $(cat $dmenvfile)"
-  
+  dm_machine=$(cat $dmenvfile)
+  eval "$(docker-machine env $dm_machine)"
 fi
 
-exec "$1"
+exec "$@"
+
 
