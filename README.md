@@ -14,7 +14,7 @@ $ git clone https://github.com/pointcom/dmenv.git ~/.dmenv
 2) Add `dmenv` path to your shell :
 
 ```shell
-$ echo 'export PATH="~/.dmenv/:$PATH"' >> ~/.bash_profile
+$ echo 'export PATH="$HOME/.dmenv/bin:$PATH"' >> ~/.bash_profile
 ```
 
 ### Setup your project
